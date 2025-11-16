@@ -13,6 +13,9 @@ import authRoutes from './routes/auth.js';
 // Import middleware
 import { logRequest, errorHandler, corsOptions } from './middleware/auth.js';
 
+// Import database initialization
+import { initializeDatabase } from './config/database-init.js';
+
 dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
@@ -20,6 +23,14 @@ const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
+
+// ============================================================================
+// Initialize Database (creates tables and seeds data on first run)
+// ============================================================================
+
+initializeDatabase().catch(err => {
+    console.error('Database initialization warning:', err.message);
+});
 
 // ============================================================================
 // Middleware
