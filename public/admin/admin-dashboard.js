@@ -316,7 +316,26 @@
     },
 
     async handleSignOut(){
-      localStorage.removeItem('authToken'); localStorage.removeItem('adminName');
+      // Clear all authentication data from both storage systems
+      localStorage.removeItem('authToken');
+      localStorage.removeItem('adminName');
+      sessionStorage.removeItem('accessToken');
+      sessionStorage.removeItem('refreshToken');
+      sessionStorage.removeItem('userData');
+      
+      // Call logout API to invalidate session on server
+      if(this.authToken) {
+        try {
+          await fetch('/api/auth/logout', {
+            method: 'POST',
+            headers: { 'Authorization': 'Bearer ' + this.authToken }
+          });
+        } catch(err) {
+          console.log('Logout API call failed (non-critical):', err);
+        }
+      }
+      
+      // Redirect to login
       window.location.href = '/login.html';
     },
 
