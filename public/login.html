@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Barangay Management System</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/login.css">
+</head>
+<body>
+    <div class="bubbles">
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    
+    <div class="login-container">
+        <div class="login-header">
+            <h1>BMS</h1>
+            <p>Barangay Management System</p>
+        </div>
+
+        <!-- LOGIN FORM -->
+        <form id="loginForm">
+            <h2>Login</h2>
+            <div id="loginErrorMsg" class="error-message hidden"></div>
+            
+            <div class="form-group">
+                <label for="loginUsername">Username or Email <span class="required">*</span></label>
+                <input 
+                    type="text" 
+                    id="loginUsername" 
+                    name="loginUsername" 
+                    placeholder="Enter username or email" 
+                    required
+                    autocomplete="username">
+                <small class="form-hint">Whitespace will be automatically trimmed</small>
+            </div>
+
+            <div class="form-group">
+                <label for="loginPassword">Password <span class="required">*</span></label>
+                <div class="password-wrapper">
+                    <input 
+                        type="password" 
+                        id="loginPassword" 
+                        name="loginPassword" 
+                        placeholder="Enter your password" 
+                        required
+                        autocomplete="current-password">
+                    <button type="button" class="btn-icon" id="toggleLoginPassword" title="Show/Hide password">
+                        <i class="fa fa-eye"></i>
+                    </button>
+                </div>
+            </div>
+
+            <div class="form-group checkbox">
+                <label for="rememberMe">
+                    <input type="checkbox" id="rememberMe" name="rememberMe">
+                    <span>Remember me</span>
+                </label>
+                <small class="form-hint">Secure session cookie will be stored</small>
+            </div>
+
+            <a href="#" id="forgotPasswordLink" class="forgot-password-link">Forgot Password?</a>
+
+            <button type="submit" class="btn">
+                <i class="fa fa-sign-in-alt"></i> Sign In
+            </button>
+
+            <div class="divider">
+                <span>or</span>
+            </div>
+
+            <div class="social-buttons">
+                <button type="button" class="btn-social btn-google" id="googleSignIn">
+                    <i class="fab fa-google"></i> Google
+                </button>
+                <button type="button" class="btn-social btn-phone" id="phoneSignIn">
+                    <i class="fa fa-phone"></i> Phone (OTP)
+                </button>
+            </div>
+
+            <div class="mt-12 small-muted text-white" style="color:#fff; font-size:0.95rem; text-align:center;">
+                <span>Don't have an account yet?</span>
+                <a href="#" id="toRegisterLink" class="accent-link">Register Here</a>
+            </div>
+        </form>
+
+        <!-- REGISTER FORM -->
+        <div id="registerCard" class="hidden mt-18">
+            <div class="content-card">
+                <h2>Create Account</h2>
+                <div class="tip-box">
+                    <strong class="tip-strong">ℹ️ After Registration:</strong> Your account will be pending admin approval. You'll be notified via email within 24–48 hours. You can check your status by logging in.
+                </div>
+                <div id="regErrorMsg" class="error-message hidden"></div>
+
+                <form id="registerForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="regFirstName">First Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="regFirstName" 
+                                name="regFirstName" 
+                                placeholder="Enter first name" 
+                                required>
+                        </div>
+                        <div class="form-group">
+                            <label for="regLastName">Last Name <span class="required">*</span></label>
+                            <input 
+                                type="text" 
+                                id="regLastName" 
+                                name="regLastName" 
+                                placeholder="Enter last name" 
+                                required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regDOB">Date of Birth <span class="required">*</span></label>
+                        <input 
+                            type="date" 
+                            id="regDOB" 
+                            name="regDOB" 
+                            required>
+                        <small class="form-hint">Must be at least 16 and no more than 90 years old</small>
+                        <div id="dobError" class="error-message hidden"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPurok">Purok (Zone) <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="regPurok" 
+                            name="regPurok" 
+                            placeholder="Enter your Purok/Zone" 
+                            required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPhone">Phone Number <span class="required">*</span></label>
+                        <div class="input-with-hint">
+                            <input 
+                                type="tel" 
+                                id="regPhone" 
+                                name="regPhone" 
+                                placeholder="09XXXXXXXXX" 
+                                pattern="^\+?63|09[0-9]{9}$"
+                                maxlength="12"
+                                required>
+                        </div>
+                        <small class="form-hint">Philippine format: 09XXXXXXXXX or +639XXXXXXXXX (digits only)</small>
+                        <div id="phoneError" class="error-message hidden"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regUsername">Username <span class="required">*</span></label>
+                        <input 
+                            type="text" 
+                            id="regUsername" 
+                            name="regUsername" 
+                            placeholder="Choose a unique username" 
+                            required>
+                        <small class="form-hint">3-20 characters; alphanumeric and underscore (_) only</small>
+                        <div id="usernameError" class="error-message hidden"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regEmail">Email <span class="required">*</span></label>
+                        <input 
+                            type="email" 
+                            id="regEmail" 
+                            name="regEmail" 
+                            placeholder="Enter a valid email" 
+                            required>
+                        <small class="form-hint">Must be a valid email format (e.g., user@example.com)</small>
+                        <div id="emailError" class="error-message hidden"></div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regPassword">Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input 
+                                type="password" 
+                                id="regPassword" 
+                                name="regPassword" 
+                                placeholder="Enter a strong password" 
+                                required>
+                            <button type="button" class="btn-icon" id="toggleRegPassword">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                        <div class="password-requirements">
+                            <p class="requirement-title">Password requirements:</p>
+                            <ul>
+                                <li id="req-length" class="requirement"><i class="fa fa-times"></i> At least 8 characters</li>
+                                <li id="req-uppercase" class="requirement"><i class="fa fa-times"></i> One uppercase letter (A-Z)</li>
+                                <li id="req-lowercase" class="requirement"><i class="fa fa-times"></i> One lowercase letter (a-z)</li>
+                                <li id="req-number" class="requirement"><i class="fa fa-times"></i> One number (0-9)</li>
+                                <li id="req-special" class="requirement"><i class="fa fa-times"></i> One special character (!@#$%^&*)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="regConfirmPassword">Confirm Password <span class="required">*</span></label>
+                        <div class="password-wrapper">
+                            <input 
+                                type="password" 
+                                id="regConfirmPassword" 
+                                name="regConfirmPassword" 
+                                placeholder="Re-enter password" 
+                                required>
+                            <button type="button" class="btn-icon" id="toggleConfirmPassword">
+                                <i class="fa fa-eye"></i>
+                            </button>
+                        </div>
+                        <div id="passwordMatchError" class="error-message hidden"></div>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <label for="regTerms">
+                            <input type="checkbox" id="regTerms" name="regTerms" required>
+                            <span>I agree to the Terms & Conditions <span class="required">*</span></span>
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <label for="regPrivacy">
+                            <input type="checkbox" id="regPrivacy" name="regPrivacy" required>
+                            <span>I agree to the Privacy Policy and consent to data processing <span class="required">*</span></span>
+                        </label>
+                        <small class="form-hint">Your data will be used solely for Barangay Management System operations</small>
+                    </div>
+
+                    <div class="form-group checkbox">
+                        <label for="regCaptcha">
+                            <input type="checkbox" id="regCaptcha" name="regCaptcha">
+                            <span>I'm not a robot</span>
+                        </label>
+                        <small class="form-hint">Recommended for security</small>
+                    </div>
+
+                    <div class="button-row">
+                        <button class="btn" type="submit"><i class="fa fa-user-plus"></i> Register</button>
+                        <button type="button" class="btn secondary" id="cancelRegisterBtn">Cancel</button>
+                    </div>
+                </form>
+
+                <div class="mt-12" style="font-size:0.95rem;color:#fff;">
+                    <span>Already have an account?</span>
+                    <a href="#" id="toLoginLink" class="accent-link">Login Here</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- PENDING REGISTRATION FORM -->
+        <div id="pendingCard" class="hidden mt-18">
+            <div class="content-card">
+                <div class="pending-header">
+                    <h2><i class="fa fa-hourglass-half"></i> Registration Pending</h2>
+                </div>
+
+                <div class="pending-content">
+                    <p class="pending-message">Your registration is under review. You will be notified when approved.</p>
+                    
+                    <div class="pending-details">
+                        <p><strong>Estimated wait time:</strong> Typically reviewed within 24–48 hours</p>
+                        <p><strong>Reference ID:</strong> <span id="pendingRefId" class="reference-id"></span></p>
+                        <p><strong>Email:</strong> <span id="pendingEmail" class="reference-id"></span></p>
+                    </div>
+
+                    <div class="tip-box large left">
+                        <p><i class="fa fa-envelope"></i> <strong>You will receive an email notification</strong> once your registration is approved or rejected with clear next steps.</p>
+                    </div>
+
+                    <div class="pending-support">
+                        <p><strong>Need assistance?</strong></p>
+                        <p>Contact our support team: <a href="mailto:eugenemaddela9@gmail.com" class="support-email">eugenemaddela9@gmail.com</a></p>
+                    </div>
+
+                    <button type="button" class="btn" id="checkStatusBtn" style="margin-bottom:12px; margin-top: 16px;">
+                        <i class="fa fa-refresh"></i> Check Status
+                    </button>
+                </div>
+
+                <div class="pending-actions">
+                    <button type="button" class="btn" id="backToMainFromPending">
+                        <i class="fa fa-home"></i> Back to Main Page
+                    </button>
+                    <button type="button" class="btn secondary" id="signOutFromPending">
+                        <i class="fa fa-sign-out-alt"></i> Sign Out
+                    </button>
+                </div>
+
+                <div class="pending-secondary-actions">
+                    <a href="#" id="resendVerificationLink" class="secondary-action-link">Resend Verification Email</a>
+                    <a href="#" id="cancelRegistrationLink" class="secondary-action-link danger">Cancel Registration</a>
+                </div>
+
+                <div style="margin-top:16px;text-align:center;font-size:0.9rem;color:#888;">
+                    <a href="#" id="backToLoginFromPending" class="muted-link">Return to Login</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="register-link">
+            <a href="index.html">Back to Main Page</a>
+        </div>
+    </div>
+
+    <script src="js/login.js"></script>
+</body>
+</html>

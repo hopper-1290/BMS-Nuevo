@@ -1,0 +1,1024 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Official Dashboard - Barangay Management System</title>
+    <link rel="stylesheet" href="css/official-dashboard.css">
+</head>
+<body>
+    <!-- ==================== HEADER ==================== -->
+    <header class="official-header">
+        <div class="header-left">
+            <div class="logo">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect x="2" y="2" width="28" height="28" rx="4" fill="#667eea" opacity="0.2"/>
+                    <path d="M16 4L22 8V14H10V8L16 4Z" fill="#667eea"/>
+                    <rect x="10" y="14" width="12" height="12" rx="2" fill="#764ba2" opacity="0.3"/>
+                </svg>
+            </div>
+            <h1 class="system-title">BARANGAY MANAGEMENT SYSTEM</h1>
+        </div>
+
+        <div class="header-center">
+            <h2 class="dashboard-title">
+                Official Dashboard — <span id="officialPosition">Barangay Chairperson</span> <span id="officialName">Juan dela Cruz</span>
+            </h2>
+        </div>
+
+        <div class="header-right">
+            <button class="icon-btn notifications-btn" title="Notifications">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/>
+                    <path d="M13.73 21a2 2 0 0 1-3.46 0"/>
+                </svg>
+                <span class="notification-badge">3</span>
+            </button>
+
+            <button class="icon-btn messages-btn" title="Messages">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+                <span class="message-badge">5</span>
+            </button>
+
+            <div class="profile-menu">
+                <button class="profile-btn" title="Profile Menu">
+                    <img src="https://ui-avatars.com/api/?name=Juan+dela+Cruz&background=667eea&color=fff" alt="Profile">
+                </button>
+                <div class="dropdown-menu">
+                    <a href="#profile" class="dropdown-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                            <circle cx="12" cy="7" r="4"/>
+                        </svg>
+                        View Profile
+                    </a>
+                    <a href="#settings" class="dropdown-item">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <circle cx="12" cy="12" r="1"/><circle cx="19" cy="12" r="1"/><circle cx="5" cy="12" r="1"/>
+                        </svg>
+                        Settings
+                    </a>
+                    <hr class="dropdown-divider">
+                    <button class="dropdown-item logout-btn">
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/>
+                            <polyline points="16 17 21 12 16 7"/>
+                            <line x1="21" y1="12" x2="9" y2="12"/>
+                        </svg>
+                        Sign Out
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ==================== MAIN CONTAINER ==================== -->
+    <div class="official-container">
+        <!-- ==================== SIDEBAR ==================== -->
+        <aside class="official-sidebar">
+            <nav class="sidebar-nav">
+                <a href="#dashboard" class="nav-item active" data-section="dashboard">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="12 3 20 7.5 20 16.5 12 21 4 16.5 4 7.5 12 3"/>
+                        <line x1="12" y1="12" x2="20" y2="7.5"/><line x1="12" y1="12" x2="12" y2="21"/><line x1="12" y1="12" x2="4" y2="7.5"/>
+                    </svg>
+                    Dashboard
+                </a>
+                <a href="#tasks" class="nav-item" data-section="tasks">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M9 11l3 3L22 4"/>
+                        <path d="M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0z"/>
+                    </svg>
+                    Tasks & Queue
+                </a>
+                <a href="#calendar" class="nav-item" data-section="calendar">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                    </svg>
+                    Calendar & Events
+                </a>
+                <a href="#complaints" class="nav-item" data-section="complaints">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                    </svg>
+                    Complaints
+                </a>
+                <a href="#approvals" class="nav-item" data-section="approvals">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <polyline points="20 6 9 17 4 12"/>
+                    </svg>
+                    Approvals
+                </a>
+                <a href="#residents" class="nav-item" data-section="residents">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                        <circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                        <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                    </svg>
+                    Residents
+                </a>
+                <a href="#announcements" class="nav-item" data-section="announcements">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    Announcements
+                </a>
+                <a href="#reports" class="nav-item" data-section="reports">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="12" y1="2" x2="12" y2="22"/><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                    </svg>
+                    Reports
+                </a>
+                <a href="#documents" class="nav-item" data-section="documents">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="13" x2="12" y2="17"/><line x1="9" y1="15" x2="15" y2="15"/>
+                    </svg>
+                    Documents
+                </a>
+                <a href="#audit" class="nav-item" data-section="audit">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <path d="M19 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11l5 5v11a2 2 0 0 1-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/>
+                    </svg>
+                    Audit Trail
+                </a>
+            </nav>
+        </aside>
+
+        <!-- ==================== MAIN CONTENT ==================== -->
+        <main class="official-main">
+            <!-- Dashboard Section -->
+            <section id="dashboard" class="content-section active">
+                <!-- Top Summary Cards -->
+                <div class="summary-cards">
+                    <div class="summary-card" data-link="complaints">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Assigned Complaints</h3>
+                            <p class="card-count">12</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card" data-link="approvals">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <polyline points="20 6 9 17 4 12"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Pending Approvals</h3>
+                            <p class="card-count">5</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card" data-link="calendar">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Upcoming Events</h3>
+                            <p class="card-count">3</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card" data-link="announcements">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Public Announcements</h3>
+                            <p class="card-count">8</p>
+                        </div>
+                    </div>
+
+                    <div class="summary-card" data-link="messages">
+                        <div class="card-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="card-content">
+                            <h3>Constituent Messages</h3>
+                            <p class="card-count">15</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recent Activity & Notifications Grid -->
+                <div class="dashboard-grid">
+                    <!-- Recent Activity -->
+                    <div class="dashboard-section-card">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="view-all-link">View All</a>
+                        </div>
+                        <div class="activity-timeline">
+                            <div class="timeline-item">
+                                <div class="timeline-marker completed"></div>
+                                <div class="timeline-content">
+                                    <h4>Complaint Status Updated</h4>
+                                    <p>Complaint #2024-0042 marked as "Resolved"</p>
+                                    <span class="timeline-time">2 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker pending"></div>
+                                <div class="timeline-content">
+                                    <h4>Document Approved</h4>
+                                    <p>Certificate of Residency request approved</p>
+                                    <span class="timeline-time">5 hours ago</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker alert"></div>
+                                <div class="timeline-content">
+                                    <h4>Event Scheduled</h4>
+                                    <p>Community Cleanup Drive scheduled for Nov 23</p>
+                                    <span class="timeline-time">1 day ago</span>
+                                </div>
+                            </div>
+                            <div class="timeline-item">
+                                <div class="timeline-marker system"></div>
+                                <div class="timeline-content">
+                                    <h4>System Event</h4>
+                                    <p>New resident registered in Purok A</p>
+                                    <span class="timeline-time">2 days ago</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Notifications -->
+                    <div class="dashboard-section-card">
+                        <div class="card-header">
+                            <h3>Notifications</h3>
+                            <button class="clear-btn">Clear All</button>
+                        </div>
+                        <div class="notifications-list">
+                            <div class="notification-item urgent">
+                                <div class="notification-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Complaint Escalation</h4>
+                                    <p>Complaint #2024-0051 requires immediate attention</p>
+                                </div>
+                                <button class="dismiss-btn">×</button>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.42 0-8-3.58-8-8s3.58-8 8-8 8 3.58 8 8-3.58 8-8 8zm3.5-9c.83 0 1.5-.67 1.5-1.5S16.33 8 15.5 8 14 8.67 14 9.5s.67 1.5 1.5 1.5zm-7 0c.83 0 1.5-.67 1.5-1.5S9.33 8 8.5 8 7 8.67 7 9.5 7.67 11 8.5 11z"/>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Meeting Reminder</h4>
+                                    <p>Barangay Council Meeting in 2 hours</p>
+                                </div>
+                                <button class="dismiss-btn">×</button>
+                            </div>
+                            <div class="notification-item">
+                                <div class="notification-icon">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                        <path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm0 16H5V5h14v14zm-5.04-6.71l-2.75 3.54-2.29-2.29c-.39-.39-1.02-.39-1.41 0-.39.39-.39 1.02 0 1.41l3 3c.39.39 1.02.39 1.41 0l3.54-4.29c.39-.49.39-1.02 0-1.41-.39-.38-1.02-.38-1.41.01z"/>
+                                    </svg>
+                                </div>
+                                <div class="notification-content">
+                                    <h4>Document Approval</h4>
+                                    <p>Marriage Certificate issued for citizen Juan Doe</p>
+                                </div>
+                                <button class="dismiss-btn">×</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Constituency Statistics -->
+                <div class="dashboard-section-card">
+                    <div class="card-header">
+                        <h3>Constituency Statistics</h3>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-card">
+                            <h4>Residents by Purok</h4>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>Purok A</span>
+                                    <span class="stat-value">128</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Purok B</span>
+                                    <span class="stat-value">145</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Purok C</span>
+                                    <span class="stat-value">112</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Purok D</span>
+                                    <span class="stat-value">98</span>
+                                </div>
+                                <div class="stat-row total">
+                                    <span>Total</span>
+                                    <span class="stat-value">483</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <h4>Recent Registrations</h4>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>This Week</span>
+                                    <span class="stat-value">7</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Last Week</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>This Month</span>
+                                    <span class="stat-value">18</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Average</span>
+                                    <span class="stat-value">4.5/week</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="stat-card">
+                            <h4>Flagged Households</h4>
+                            <div class="stat-content">
+                                <div class="stat-row">
+                                    <span>Vulnerable</span>
+                                    <span class="stat-value priority">12</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Follow-up Needed</span>
+                                    <span class="stat-value warning">8</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>Special Assistance</span>
+                                    <span class="stat-value">5</span>
+                                </div>
+                                <div class="stat-row">
+                                    <span>New Residents</span>
+                                    <span class="stat-value">3</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Tasks & Action Queue Section -->
+            <section id="tasks" class="content-section">
+                <div class="section-header">
+                    <h2>Tasks & Action Queue</h2>
+                    <div class="filter-group">
+                        <select id="taskFilter" class="filter-select">
+                            <option value="all">All Tasks</option>
+                            <option value="complaints">Complaints</option>
+                            <option value="approvals">Approvals</option>
+                            <option value="events">Events</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="tasks-container">
+                    <!-- Assigned Complaint -->
+                    <div class="task-card">
+                        <div class="task-header">
+                            <h3>Complaint #2024-0051</h3>
+                            <span class="task-badge urgent">Urgent</span>
+                        </div>
+                        <div class="task-body">
+                            <p class="task-type"><strong>Category:</strong> Noise Complaint</p>
+                            <p class="task-description">Resident reported loud music from neighboring property during late hours.</p>
+                            <p class="task-info"><strong>Filed by:</strong> Maria Santos | <strong>Date:</strong> Nov 13, 2024</p>
+                            <p class="task-status"><strong>Current Status:</strong> In Progress</p>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn view-btn">View Details</button>
+                            <button class="action-btn update-btn">Update Status</button>
+                            <button class="action-btn note-btn">Add Note</button>
+                        </div>
+                    </div>
+
+                    <!-- Document Awaiting Approval -->
+                    <div class="task-card">
+                        <div class="task-header">
+                            <h3>Document Approval Request</h3>
+                            <span class="task-badge pending">Pending</span>
+                        </div>
+                        <div class="task-body">
+                            <p class="task-type"><strong>Document:</strong> Certificate of Residency</p>
+                            <p class="task-description">John Reyes requesting Certificate of Residency for employment purposes.</p>
+                            <p class="task-info"><strong>Submitted by:</strong> Barangay Clerk | <strong>Date:</strong> Nov 14, 2024</p>
+                            <p class="task-status"><strong>Current Status:</strong> Awaiting Official Signature</p>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn view-btn">View Document</button>
+                            <button class="action-btn approve-btn">Approve</button>
+                            <button class="action-btn reject-btn">Request Info</button>
+                        </div>
+                    </div>
+
+                    <!-- Event Invitation -->
+                    <div class="task-card">
+                        <div class="task-header">
+                            <h3>Event Confirmation</h3>
+                            <span class="task-badge info">Invitation</span>
+                        </div>
+                        <div class="task-body">
+                            <p class="task-type"><strong>Event:</strong> Community Cleanup Drive</p>
+                            <p class="task-description">Your attendance is requested for the upcoming barangay cleanup event.</p>
+                            <p class="task-info"><strong>Scheduled:</strong> Nov 23, 2024 | <strong>Time:</strong> 8:00 AM</p>
+                            <p class="task-status"><strong>Current Status:</strong> Awaiting RSVP</p>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn view-btn">View Event Details</button>
+                            <button class="action-btn approve-btn">Confirm Attendance</button>
+                            <button class="action-btn reject-btn">Decline</button>
+                        </div>
+                    </div>
+
+                    <!-- Complaint for Review -->
+                    <div class="task-card">
+                        <div class="task-header">
+                            <h3>Complaint #2024-0049</h3>
+                            <span class="task-badge warning">Review</span>
+                        </div>
+                        <div class="task-body">
+                            <p class="task-type"><strong>Category:</strong> Street Maintenance</p>
+                            <p class="task-description">Pothole reported on Main Street affecting vehicle safety.</p>
+                            <p class="task-info"><strong>Filed by:</strong> Roberto Santos | <strong>Date:</strong> Nov 12, 2024</p>
+                            <p class="task-status"><strong>Current Status:</strong> Pending Review</p>
+                        </div>
+                        <div class="task-actions">
+                            <button class="action-btn view-btn">View Details</button>
+                            <button class="action-btn update-btn">Update Status</button>
+                            <button class="action-btn note-btn">Add Note</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Calendar & Events Section -->
+            <section id="calendar" class="content-section">
+                <div class="section-header">
+                    <h2>Calendar & Events</h2>
+                    <button class="btn btn-primary">+ Add Event</button>
+                </div>
+
+                <div class="calendar-container">
+                    <!-- Mini Calendar -->
+                    <div class="mini-calendar">
+                        <div class="calendar-nav">
+                            <button class="prev-month">←</button>
+                            <h3>November 2024</h3>
+                            <button class="next-month">→</button>
+                        </div>
+                        <div class="calendar-grid">
+                            <div class="day-header">Sun</div><div class="day-header">Mon</div><div class="day-header">Tue</div><div class="day-header">Wed</div><div class="day-header">Thu</div><div class="day-header">Fri</div><div class="day-header">Sat</div>
+                            <div class="calendar-day empty">27</div><div class="calendar-day empty">28</div><div class="calendar-day empty">29</div><div class="calendar-day empty">30</div><div class="calendar-day empty">31</div><div class="calendar-day">1</div><div class="calendar-day">2</div>
+                            <div class="calendar-day">3</div><div class="calendar-day">4</div><div class="calendar-day">5</div><div class="calendar-day">6</div><div class="calendar-day">7</div><div class="calendar-day">8</div><div class="calendar-day">9</div>
+                            <div class="calendar-day">10</div><div class="calendar-day">11</div><div class="calendar-day">12</div><div class="calendar-day">13</div><div class="calendar-day">14</div><div class="calendar-day">15</div><div class="calendar-day">16</div>
+                            <div class="calendar-day">17</div><div class="calendar-day">18</div><div class="calendar-day">19</div><div class="calendar-day">20</div><div class="calendar-day">21</div><div class="calendar-day">22</div><div class="calendar-day has-event">23</div>
+                            <div class="calendar-day">24</div><div class="calendar-day">25</div><div class="calendar-day has-event">26</div><div class="calendar-day today">27</div><div class="calendar-day">28</div><div class="calendar-day">29</div><div class="calendar-day">30</div>
+                        </div>
+                    </div>
+
+                    <!-- Events List -->
+                    <div class="events-list">
+                        <div class="event-card">
+                            <div class="event-date">Nov 21, 2024</div>
+                            <div class="event-content">
+                                <h4>Barangay Council Meeting</h4>
+                                <p class="event-time">⏰ 2:00 PM - 4:00 PM</p>
+                                <p class="event-description">Monthly council session to discuss community concerns and approve resolutions.</p>
+                                <div class="event-rsvp">
+                                    <span class="rsvp-count">12 attending</span>
+                                    <span class="your-status confirmed">✓ You're attending</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <button class="action-btn">View Details</button>
+                                <button class="action-btn">Cancel RSVP</button>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">Nov 23, 2024</div>
+                            <div class="event-content">
+                                <h4>Community Cleanup Drive</h4>
+                                <p class="event-time">⏰ 8:00 AM - 12:00 PM</p>
+                                <p class="event-description">Join us for a barangay-wide cleanup initiative. Bring your own tools and gloves.</p>
+                                <div class="event-rsvp">
+                                    <span class="rsvp-count">28 registered</span>
+                                    <span class="your-status pending">⏳ Pending response</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <button class="action-btn">View Details</button>
+                                <button class="action-btn">Confirm Attendance</button>
+                            </div>
+                        </div>
+
+                        <div class="event-card">
+                            <div class="event-date">Nov 26, 2024</div>
+                            <div class="event-content">
+                                <h4>Residents' Hearing</h4>
+                                <p class="event-time">⏰ 3:00 PM - 5:00 PM</p>
+                                <p class="event-description">Open forum for residents to present concerns and grievances to barangay officials.</p>
+                                <div class="event-rsvp">
+                                    <span class="rsvp-count">5 residents</span>
+                                    <span class="your-status confirmed">✓ You're attending</span>
+                                </div>
+                            </div>
+                            <div class="event-actions">
+                                <button class="action-btn">View Details</button>
+                                <button class="action-btn">Cancel RSVP</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Complaints Section -->
+            <section id="complaints" class="content-section">
+                <div class="section-header">
+                    <h2>Assigned Complaints</h2>
+                    <div class="filter-group">
+                        <select id="complaintFilter" class="filter-select">
+                            <option value="all">All Statuses</option>
+                            <option value="pending">Pending</option>
+                            <option value="in-progress">In Progress</option>
+                            <option value="escalated">Escalated</option>
+                            <option value="resolved">Resolved</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Category</th>
+                                <th>Title</th>
+                                <th>Resident</th>
+                                <th>Filed Date</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>#2024-0051</td>
+                                <td>Noise</td>
+                                <td>Loud music from neighbor</td>
+                                <td>Maria Santos</td>
+                                <td>Nov 13, 2024</td>
+                                <td><span class="badge status-urgent">In Progress</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Update</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#2024-0049</td>
+                                <td>Infrastructure</td>
+                                <td>Pothole on Main Street</td>
+                                <td>Roberto Santos</td>
+                                <td>Nov 12, 2024</td>
+                                <td><span class="badge status-warning">Pending</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Update</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#2024-0045</td>
+                                <td>Animal Control</td>
+                                <td>Stray dogs in neighborhood</td>
+                                <td>Carmen Reyes</td>
+                                <td>Nov 10, 2024</td>
+                                <td><span class="badge status-success">Resolved</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Close</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>#2024-0040</td>
+                                <td>Utilities</td>
+                                <td>Water supply interruption</td>
+                                <td>Juan Dela Cruz</td>
+                                <td>Nov 8, 2024</td>
+                                <td><span class="badge status-success">Resolved</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Close</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Approvals Section -->
+            <section id="approvals" class="content-section">
+                <div class="section-header">
+                    <h2>Documents & Approvals</h2>
+                    <div class="filter-group">
+                        <select id="approvalFilter" class="filter-select">
+                            <option value="all">All Types</option>
+                            <option value="pending">Pending</option>
+                            <option value="approved">Approved</option>
+                            <option value="rejected">Rejected</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Document</th>
+                                <th>Resident</th>
+                                <th>Purpose</th>
+                                <th>Submitted</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Certificate of Residency</td>
+                                <td>John Reyes</td>
+                                <td>Employment</td>
+                                <td>Nov 14, 2024</td>
+                                <td><span class="badge status-warning">Pending</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Approve</button>
+                                    <button class="action-btn-small reject">Info</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Barangay Clearance</td>
+                                <td>Anna Jose</td>
+                                <td>Travel Abroad</td>
+                                <td>Nov 13, 2024</td>
+                                <td><span class="badge status-success">Approved</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Print</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Marriage Certificate</td>
+                                <td>Juan Doe</td>
+                                <td>Official Record</td>
+                                <td>Nov 12, 2024</td>
+                                <td><span class="badge status-success">Approved</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View</button>
+                                    <button class="action-btn-small">Print</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Residents Section -->
+            <section id="residents" class="content-section">
+                <div class="section-header">
+                    <h2>Residents</h2>
+                    <div class="filter-group">
+                        <select id="purokFilter" class="filter-select">
+                            <option value="all">All Puroks</option>
+                            <option value="a">Purok A</option>
+                            <option value="b">Purok B</option>
+                            <option value="c">Purok C</option>
+                            <option value="d">Purok D</option>
+                        </select>
+                        <input type="text" class="filter-input" placeholder="Search residents...">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Name</th>
+                                <th>Purok</th>
+                                <th>Contact</th>
+                                <th>Household Head</th>
+                                <th>Status</th>
+                                <th>Flags</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Maria Santos</td>
+                                <td>Purok A</td>
+                                <td>09123456789</td>
+                                <td>Yes</td>
+                                <td><span class="badge status-active">Active</span></td>
+                                <td><span class="flag vulnerable">Vulnerable</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View Profile</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Roberto Santos</td>
+                                <td>Purok B</td>
+                                <td>09234567890</td>
+                                <td>Yes</td>
+                                <td><span class="badge status-active">Active</span></td>
+                                <td><span class="flag follow-up">Follow-up</span></td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View Profile</button>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>John Reyes</td>
+                                <td>Purok C</td>
+                                <td>09345678901</td>
+                                <td>No</td>
+                                <td><span class="badge status-active">Active</span></td>
+                                <td>None</td>
+                                <td class="action-cell">
+                                    <button class="action-btn-small">View Profile</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+
+            <!-- Announcements Section -->
+            <section id="announcements" class="content-section">
+                <div class="section-header">
+                    <h2>Announcements</h2>
+                    <button class="btn btn-primary">+ New Announcement</button>
+                </div>
+
+                <div class="announcements-list">
+                    <div class="announcement-card">
+                        <div class="announcement-header">
+                            <h3>Water Service Interruption Notice</h3>
+                            <span class="badge status-urgent">Urgent</span>
+                        </div>
+                        <p class="announcement-content">Water service will be interrupted on November 25-26 for pipeline maintenance. Please stock water in advance.</p>
+                        <div class="announcement-meta">
+                            <span>Published: Nov 14, 2024</span>
+                            <span>By: Official Account</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn-small">Edit</button>
+                            <button class="action-btn-small">Unpublish</button>
+                        </div>
+                    </div>
+
+                    <div class="announcement-card">
+                        <div class="announcement-header">
+                            <h3>Community Cleanup Drive - Register Now!</h3>
+                            <span class="badge status-info">Event</span>
+                        </div>
+                        <p class="announcement-content">Join us for our monthly cleanup initiative on November 23rd. Meet at the barangay hall at 8 AM. All volunteers welcome!</p>
+                        <div class="announcement-meta">
+                            <span>Published: Nov 12, 2024</span>
+                            <span>By: Official Account</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn-small">Edit</button>
+                            <button class="action-btn-small">Unpublish</button>
+                        </div>
+                    </div>
+
+                    <div class="announcement-card">
+                        <div class="announcement-header">
+                            <h3>New Resident Registration Process</h3>
+                            <span class="badge status-info">Information</span>
+                        </div>
+                        <p class="announcement-content">Streamlined resident registration is now available online. Visit our portal to complete your registration and get instant confirmation.</p>
+                        <div class="announcement-meta">
+                            <span>Published: Nov 10, 2024</span>
+                            <span>By: Official Account</span>
+                        </div>
+                        <div class="announcement-actions">
+                            <button class="action-btn-small">Edit</button>
+                            <button class="action-btn-small">Unpublish</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Reports Section -->
+            <section id="reports" class="content-section">
+                <div class="section-header">
+                    <h2>Reports</h2>
+                    <button class="btn btn-primary">+ Generate Report</button>
+                </div>
+
+                <div class="reports-grid">
+                    <div class="report-card">
+                        <h3>Complaint Summary</h3>
+                        <div class="report-stats">
+                            <div class="stat">
+                                <span class="stat-label">Total Filed</span>
+                                <span class="stat-value">47</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Resolved</span>
+                                <span class="stat-value">32</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Pending</span>
+                                <span class="stat-value">12</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Escalated</span>
+                                <span class="stat-value">3</span>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn-small">View Details</button>
+                            <button class="action-btn-small">Export</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Response Time Analysis</h3>
+                        <div class="report-stats">
+                            <div class="stat">
+                                <span class="stat-label">Average Response</span>
+                                <span class="stat-value">2.3 days</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">SLA Compliance</span>
+                                <span class="stat-value">94%</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Overdue</span>
+                                <span class="stat-value">3</span>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn-small">View Details</button>
+                            <button class="action-btn-small">Export</button>
+                        </div>
+                    </div>
+
+                    <div class="report-card">
+                        <h3>Approval Workflow</h3>
+                        <div class="report-stats">
+                            <div class="stat">
+                                <span class="stat-label">Documents Processed</span>
+                                <span class="stat-value">89</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Approved</span>
+                                <span class="stat-value">85</span>
+                            </div>
+                            <div class="stat">
+                                <span class="stat-label">Rejected</span>
+                                <span class="stat-value">4</span>
+                            </div>
+                        </div>
+                        <div class="report-actions">
+                            <button class="action-btn-small">View Details</button>
+                            <button class="action-btn-small">Export</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Documents Section -->
+            <section id="documents" class="content-section">
+                <div class="section-header">
+                    <h2>Official Documents</h2>
+                </div>
+
+                <div class="documents-grid">
+                    <div class="document-card">
+                        <div class="document-icon">📄</div>
+                        <h3>Oath of Office</h3>
+                        <p>Original oath of office document</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">📋</div>
+                        <h3>Appointment Letter</h3>
+                        <p>Official appointment document</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">🆔</div>
+                        <h3>Official ID</h3>
+                        <p>Barangay official identification</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">📄</div>
+                        <h3>Letter Template</h3>
+                        <p>Official letter template for correspondence</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">🎖️</div>
+                        <h3>Certificate Template</h3>
+                        <p>Barangay certificate template</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+
+                    <div class="document-card">
+                        <div class="document-icon">📝</div>
+                        <h3>Memo Template</h3>
+                        <p>Official memo template</p>
+                        <button class="action-btn-small">Download</button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Audit Trail Section -->
+            <section id="audit" class="content-section">
+                <div class="section-header">
+                    <h2>Audit Trail</h2>
+                    <div class="filter-group">
+                        <input type="text" class="filter-input" placeholder="Search audit logs...">
+                    </div>
+                </div>
+
+                <div class="table-container">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Timestamp</th>
+                                <th>Action</th>
+                                <th>Record ID</th>
+                                <th>Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Nov 14, 2024 - 2:30 PM</td>
+                                <td>Complaint Status Updated</td>
+                                <td>#2024-0051</td>
+                                <td>Changed status from "Pending" to "In Progress"</td>
+                            </tr>
+                            <tr>
+                                <td>Nov 14, 2024 - 1:15 PM</td>
+                                <td>Document Approved</td>
+                                <td>COR-001</td>
+                                <td>Certificate of Residency approved for John Reyes</td>
+                            </tr>
+                            <tr>
+                                <td>Nov 13, 2024 - 4:45 PM</td>
+                                <td>Announcement Published</td>
+                                <td>ANN-045</td>
+                                <td>Water Service Interruption notice published</td>
+                            </tr>
+                            <tr>
+                                <td>Nov 13, 2024 - 3:20 PM</td>
+                                <td>Event RSVP</td>
+                                <td>EVT-023</td>
+                                <td>Confirmed attendance for Barangay Council Meeting</td>
+                            </tr>
+                            <tr>
+                                <td>Nov 12, 2024 - 10:00 AM</td>
+                                <td>Note Added</td>
+                                <td>#2024-0049</td>
+                                <td>Added follow-up note: "Schedule site visit"</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/official-dashboard.js"></script>
+</body>
+</html>
