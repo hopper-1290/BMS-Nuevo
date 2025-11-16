@@ -288,17 +288,51 @@ body {
     width: 250px;
     background: var(--color-bg-dark);
     border-right: 1px solid rgba(var(--color-primary-rgb), 0.2);
-    padding: var(--space-lg) 0;
+    padding: 0;
     position: sticky;
     top: 80px;
     height: calc(100vh - 80px);
     overflow-y: auto;
 }
 
+.sidebar-clock {
+    padding: 20px 15px;
+    text-align: center;
+    border-bottom: 2px solid rgba(var(--color-accent-rgb), 0.3);
+    background: linear-gradient(135deg, rgba(79, 195, 220, 0.1) 0%, rgba(38, 208, 124, 0.1) 100%);
+    margin: 0;
+}
+
+.clock-label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: var(--color-text-secondary);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.clock-time {
+    font-size: 18px;
+    color: var(--accent-cyan);
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    margin-bottom: 6px;
+    animation: subtle-pulse 2s ease-in-out infinite;
+    text-shadow: 0 0 20px rgba(79, 195, 220, 0.5);
+}
+
+.clock-date {
+    font-size: 11px;
+    color: var(--accent-green);
+    font-weight: 500;
+}
+
 .sidebar-nav {
     display: flex;
     flex-direction: column;
     gap: 0;
+    padding: var(--space-lg) 0;
 }
 
 .nav-item {
