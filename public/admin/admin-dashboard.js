@@ -2,10 +2,28 @@
 (function(){
   const API_BASE = '/api'; // adjust as needed
 
+  // Helper function to get user from session
+  function getUserFromSession() {
+    try {
+      const userData = sessionStorage.getItem('userData');
+      return userData ? JSON.parse(userData) : null;
+    } catch (error) {
+      return null;
+    }
+  }
+
   const adminDashboard = {
     adminName: 'Admin',
     authToken: localStorage.getItem('authToken') || '',
     init(){
+      // Check for admin role - only admins can access this dashboard
+      const userData = getUserFromSession();
+      if (userData?.role !== 'admin') {
+        alert('Access Denied: Only admins can access this dashboard');
+        window.location.href = '/login.html';
+        return;
+      }
+      
       this.cache();
       this.bind();
       this.setAdminName();

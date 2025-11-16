@@ -13,13 +13,13 @@ dotenv.config();
 const testUsers = [
     {
         username: 'admin',
-        email: 'admin@bms.local',
+        email: 'eugenemaddela9@gmail.com',
         password: 'admin123',
-        firstName: 'Admin',
-        lastName: 'User',
-        dateOfBirth: '1990-01-01',
-        phoneNumber: '09123456789',
-        purok: 'Admin Zone',
+        firstName: 'Eugene',
+        lastName: 'Maddela',
+        dateOfBirth: '2005-09-30',
+        phoneNumber: '09987654321',
+        purok: 'Zone 4',
         role: 'admin',
         status: 'active'
     },
