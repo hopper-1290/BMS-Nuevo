@@ -159,66 +159,8 @@
             <!-- Dashboard Section -->
             <section id="dashboard" class="content-section active">
                 <!-- Top Summary Cards -->
-                <div class="summary-cards">
-                    <div class="summary-card" data-link="complaints">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
-                            </svg>
-                        </div>
-                        <div class="card-content">
-                            <h3>Assigned Complaints</h3>
-                            <p class="card-count">12</p>
-                        </div>
-                    </div>
-
-                    <div class="summary-card" data-link="approvals">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <polyline points="20 6 9 17 4 12"/>
-                            </svg>
-                        </div>
-                        <div class="card-content">
-                            <h3>Pending Approvals</h3>
-                            <p class="card-count">5</p>
-                        </div>
-                    </div>
-
-                    <div class="summary-card" data-link="calendar">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
-                            </svg>
-                        </div>
-                        <div class="card-content">
-                            <h3>Upcoming Events</h3>
-                            <p class="card-count">3</p>
-                        </div>
-                    </div>
-
-                    <div class="summary-card" data-link="announcements">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <div class="card-content">
-                            <h3>Public Announcements</h3>
-                            <p class="card-count">8</p>
-                        </div>
-                    </div>
-
-                    <div class="summary-card" data-link="messages">
-                        <div class="card-icon">
-                            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
-                        </div>
-                        <div class="card-content">
-                            <h3>Constituent Messages</h3>
-                            <p class="card-count">15</p>
-                        </div>
-                    </div>
+                <div class="summary-cards" id="summaryCards">
+                    <!-- Will be populated dynamically from database -->
                 </div>
 
                 <!-- Recent Activity & Notifications Grid -->
@@ -406,8 +348,8 @@
                 </div>
 
                 <div class="tasks-container">
-                    <!-- Assigned Complaint -->
-                    <div class="task-card">
+                    <!-- Will be populated dynamically from database -->
+                </div>
                         <div class="task-header">
                             <h3>Complaint #2024-0051</h3>
                             <span class="task-badge urgent">Urgent</span>
@@ -511,7 +453,8 @@
 
                     <!-- Events List -->
                     <div class="events-list">
-                        <div class="event-card">
+                        <!-- Will be populated dynamically from database -->
+                    </div>
                             <div class="event-date">Nov 21, 2024</div>
                             <div class="event-content">
                                 <h4>Barangay Council Meeting</h4>

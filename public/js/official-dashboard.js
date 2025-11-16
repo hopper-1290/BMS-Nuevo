@@ -207,10 +207,84 @@ function loadDashboardData() {
             events: events || [],
             announcements: announcements || []
         });
+        // Also load summary cards
+        loadSummaryCards(complaints, residents, events, announcements);
     }).catch(err => {
         console.error('Error loading dashboard:', err);
         showNotification('Failed to load dashboard data', 'error');
     });
+}
+
+function loadSummaryCards(complaints, residents, events, announcements) {
+    const container = document.getElementById('summaryCards');
+    if (!container) return;
+    
+    const complaintCount = complaints ? complaints.length : 0;
+    const residentsCount = residents ? residents.length : 0;
+    const eventsCount = events ? events.length : 0;
+    const announcementsCount = announcements ? announcements.length : 0;
+    
+    container.innerHTML = `
+        <div class="summary-card" onclick="navigateToSection('complaints')">
+            <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-2h2v2zm0-4h-2V7h2v6z"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h3>Assigned Complaints</h3>
+                <p class="card-count">${complaintCount}</p>
+            </div>
+        </div>
+
+        <div class="summary-card" onclick="navigateToSection('approvals')">
+            <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <polyline points="20 6 9 17 4 12"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h3>Pending Approvals</h3>
+                <p class="card-count">${residentsCount}</p>
+            </div>
+        </div>
+
+        <div class="summary-card" onclick="navigateToSection('calendar')">
+            <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h3>Upcoming Events</h3>
+                <p class="card-count">${eventsCount}</p>
+            </div>
+        </div>
+
+        <div class="summary-card" onclick="navigateToSection('announcements')">
+            <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h3>Public Announcements</h3>
+                <p class="card-count">${announcementsCount}</p>
+            </div>
+        </div>
+
+        <div class="summary-card" onclick="showNotification('Messages feature coming soon', 'info')">
+            <div class="card-icon">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
+                </svg>
+            </div>
+            <div class="card-content">
+                <h3>Constituent Messages</h3>
+                <p class="card-count">0</p>
+            </div>
+        </div>
+    `;
 }
 
 function loadTasksData() {
