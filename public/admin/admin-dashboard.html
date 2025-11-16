@@ -371,7 +371,15 @@
 
   <script src="../js/realtime.js"></script>
   <script src="../js/auth-redirect.js"></script>
-  <script src="../js/load-admin-sidebar.js"></script>
+  <script src="../js/sidebar-loader.js"></script>
   <script src="./admin-dashboard.js"></script>
+  <script>
+    // Load admin dashboard sidebar sections
+    document.addEventListener('DOMContentLoaded', async () => {
+      const adminSections = ['clock', 'overview', 'users', 'system', 'logs'];
+      await loadSidebarSections('admin', adminSections);
+      setupNavigation();
+    });
+  </script>
 </body>
 </html>

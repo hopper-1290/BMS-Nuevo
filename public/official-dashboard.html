@@ -904,7 +904,15 @@
 
     <script src="js/realtime.js"></script>
     <script src="js/auth-redirect.js"></script>
-    <script src="js/load-official-sidebar.js"></script>
+    <script src="js/sidebar-loader.js"></script>
     <script src="js/official-dashboard.js"></script>
+    <script>
+        // Load official dashboard sidebar sections
+        document.addEventListener('DOMContentLoaded', async () => {
+            const officialSections = ['clock', 'dashboard', 'tasks', 'calendar', 'complaints', 'approvals', 'residents', 'announcements', 'reports', 'documents', 'audit'];
+            await loadSidebarSections('official', officialSections);
+            setupNavigation();
+        });
+    </script>
 </body>
 </html>

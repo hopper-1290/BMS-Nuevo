@@ -1038,7 +1038,15 @@
 
     <script src="js/realtime.js"></script>
     <script src="js/auth-redirect.js"></script>
-    <script src="js/load-resident-sidebar.js"></script>
+    <script src="js/sidebar-loader.js"></script>
     <script src="js/resident-dashboard.js"></script>
+    <script>
+        // Load resident dashboard sidebar sections
+        document.addEventListener('DOMContentLoaded', async () => {
+            const residentSections = ['clock', 'overview', 'complaints', 'requests', 'community', 'events'];
+            await loadSidebarSections('resident', residentSections);
+            setupNavigation();
+        });
+    </script>
 </body>
 </html>
