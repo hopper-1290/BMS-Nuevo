@@ -303,6 +303,9 @@ async function performLogin(username, password, rememberMe) {
         if (result.success) {
             saveSession(result.accessToken, result.refreshToken, result.user);
             session.user = result.user;
+            if (session.user?.role === 'admin') {
+                sessionStorage.setItem('adminName', session.user.firstName);
+            }
             redirectToDashboard();
         }
     } catch (error) {

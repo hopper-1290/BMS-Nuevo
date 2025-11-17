@@ -200,3 +200,7 @@ export const auditTrail = (actionType) => {
         next();
     };
 };
+fetch(url, {
+  method: "GET",
+  credentials: "include"
+});

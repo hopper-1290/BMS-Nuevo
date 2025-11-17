@@ -18,7 +18,7 @@ class AdminDashboardManager {
             sessions: [],
             pendingItems: []
         };
-        this.token = localStorage.getItem('token');
+        this.token = sessionStorage.getItem('accessToken');
         this.baseAPI = '/api/admin';
         this.currentPage = 1;
         this.pageSize = 10;
@@ -115,7 +115,7 @@ class AdminDashboardManager {
             const data = await response.json();
             
             // Update header
-            const adminName = localStorage.getItem('adminName') || 'Administrator';
+            const adminName = sessionStorage.getItem('adminName') || 'Administrator';
             document.getElementById('adminName').textContent = adminName;
 
             // Update summary cards
@@ -909,8 +909,9 @@ function closeModal(modalId) {
 
 function logout() {
     if (confirm('Sign out from admin dashboard?')) {
-        localStorage.removeItem('token');
-        localStorage.removeItem('adminName');
+        sessionStorage.removeItem('accessToken');
+        sessionStorage.removeItem('refreshToken');
+        sessionStorage.removeItem('adminName');
         window.location.href = '/login.html';
     }
 }
